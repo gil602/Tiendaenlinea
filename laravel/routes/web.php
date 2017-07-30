@@ -21,3 +21,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/mostrarArticulo', 'ProductsController@mostrarp');
+
+
+Route::get('/editarProduct/{id}','ProductsController@edit');
+
+Route::post('/actualizarProduct/{id}','ProductsController@update');
+
