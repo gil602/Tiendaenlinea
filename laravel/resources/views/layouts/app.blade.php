@@ -15,15 +15,18 @@
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}"/>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="//
-    maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material-fullpalette.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/ripples.min.css">
+ 
 
 </head>
 <body>
+    <div class="header" id="home1">
+        <div class="container">
+
+            <div class="w3l_logo">
+            <img src="img/slide-image-1.jpg" alt="" width="270" height="70">
+                <h1><a href="/laravel/public">Syscom<span>   A la vanguardia en Tecnologia.</span></a></h1>
+            </div>
+
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -51,13 +54,17 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->                            <li><a href="{{ url('/mostrarArticulo1')}}" target="_blank">Camaras</a></li>
-                        <li>
-                        <li><a href="{{ url('/mostrarArticulo2')}}" target="_blank">Redes</a></li>
-                        <li>
-                        <li><a href="{{ url('/mostrarArticulo3')}}" target="_blank">Energia</a></li>
-                        <li>
-                        <li><a href="{{ url('/mostrarArticulo')}}" target="_blank">Todos los articulos</a></li>
+                        <!-- Authentication Links -->                            
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categorias<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url('/mostrarArticulo')}}">Todos los Articulos</a></li>
+                                <li><a href="{{ url('/camaras')}}">Camaras</a></li>
+                                <li><a href="{{ url('/red')}}">Redes</a></li>
+                                <li><a href="{{ url('/energia')}}">Energia</a></li>
+                            </ul>
+                        </li>
                         <li>
                         <a href="{{url('/carrito')}}">
                              Mi carrito
@@ -66,6 +73,8 @@
                             </span>
                         </a>
                         </li>
+                        
+
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
@@ -74,9 +83,16 @@
                         @else
                                                 @if (Auth::user()->role == 1)
                             <li><a href="{{url('admin')}}">Inicio</a></li>
-                            
+                                                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url('/consultarUsuarios')}}">Ver usuarios</a></li>
+                                <li><a href="{{ url('/registrarUsuarios')}}">registrar usarios</a></li>
+                                <li><a href="{{ url('/registrarAdmin')}}">registrar admin</a></li>
+                            </ul>
+                        </li>
     
-                                <li><a href="{{ url('/products')}}" target="_blank">Inventario</a></li>
+                                <li><a href="{{ url('/products')}}">Inventario</a></li>
                                  <li><a href="{{ url('/articulos')}}" target="_blank">Enviar Promociones</a></li>
                                 @else
 
@@ -103,21 +119,10 @@
     </div>
 
     <!-- Scripts -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script
-
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/ripples.min.js"></script>
-    <script>
-        $.material.init();
-    </script>    
+ 
     <script src="{{ asset('js/app.js') }}"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ 
     <!-- footer -->
     <div class="footer">
         <div class="container">
